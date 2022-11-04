@@ -2,6 +2,9 @@ import React from "react";
 import './Track.css';
 
 export class Track extends React.Component {
+    onAdd() {
+        this.props.onAdd(this.props.track)
+    }
     
     renderAction() {
         if(this.props.isRemoval) {
