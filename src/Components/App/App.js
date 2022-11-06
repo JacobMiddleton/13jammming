@@ -32,6 +32,12 @@ class App extends React.Component {
     tracks.push(track)
     this.setState({ playlistTracks: tracks})
   }
+  
+  removeTrack(track) {
+    this.setState({playlistTracks: this.state.people.filter(function(item) { 
+      return item !== track.id 
+  })});
+  }
 
   render() {
     return (
