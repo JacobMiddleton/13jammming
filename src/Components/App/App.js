@@ -22,6 +22,7 @@ class App extends React.Component {
         {name:'playlist3', artist:'myartist3', album:'myalbum3', id:'1.3'}
       ]
     }
+    this.removeTrack = this.removeTrack.bind(this);
   }
   
   addTrack(track) {
