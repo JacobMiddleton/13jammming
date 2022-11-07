@@ -23,6 +23,7 @@ class App extends React.Component {
       ]
     }
     this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlaylistName = this.updatePlaylistName.bind(this);
   }
   
   addTrack(track) {
