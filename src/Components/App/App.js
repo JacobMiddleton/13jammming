@@ -39,7 +39,9 @@ class App extends React.Component {
       return item !== track.id 
   })});
   }
-
+  updatePlaylistName(name) {
+    this.setState({ playlistName: name })
+  }
   render() {
     return (
       <div>
