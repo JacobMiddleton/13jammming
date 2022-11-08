@@ -4,6 +4,10 @@ const Spotify = {
         if(accessToken) {
             return accessToken;
         }
+
+        // check for access token 
+        const accessToken = window.location.href.match(/access_token=([^&]*)/);
+        const expiresIn = window.location.href.match(/expires_in=([^&]*)/);
     }
 };
 
