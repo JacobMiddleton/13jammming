@@ -1,4 +1,4 @@
-const accessToken = ;
+let accessToken;
 const Spotify = {
     getAccessToken() {
         if(accessToken) {
