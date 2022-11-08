@@ -2,6 +2,9 @@ import React from "react";
 import './SearchBar.css'
 
 export class SearchBar extends React.Component {
+    constructor(props) {
+        this.search = this.search.bind(this);
+    } 
     search() {
         this.props.onSearch(this.state.term)
     }
