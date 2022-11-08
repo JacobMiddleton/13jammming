@@ -50,6 +50,9 @@ class App extends React.Component {
       track.uri
     });
   }
+  search(searchTerm) {
+    console.log(searchTerm)
+  }
   render() {
     return (
       <div>
