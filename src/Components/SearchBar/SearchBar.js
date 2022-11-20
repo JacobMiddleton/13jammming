@@ -3,9 +3,11 @@ import './SearchBar.css'
 
 export class SearchBar extends React.Component {
     constructor(props) {
+        super(props);
         this.search = this.search.bind(this);
         this.handleTermChange = this.handleTermChange.bind(this);
-    } 
+    }
+
     search() {
         this.props.onSearch(this.state.term)
     }
@@ -15,9 +17,9 @@ export class SearchBar extends React.Component {
     render() {
         return(
             <div className="SearchBar">
-  <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}/>
-  <button class="SearchButton">SEARCH</button>
-</div>
+                <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}/>
+                <button className="SearchButton">SEARCH</button>
+            </div>
         )
     }
 }
