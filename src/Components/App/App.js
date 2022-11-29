@@ -1,25 +1,26 @@
 import './App.css';
 import React from 'react';
-import {SearchBar} from '../SearchBar/SearchBar';
-import {SearchResults} from '../SearchResults/SearchResults';
-import {Playlist} from '../Playlist/Playlist';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { SearchResults } from '../SearchResults/SearchResults';
+import { Playlist } from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify'
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props);
-   
-    this.state = { 
-      searchResults:[
-        {name:'name1', artist:'artist1', album:'album1', id:'1'}, 
-        {name:'name2', artist:'artist2', album:'album2', id:'2'},
-        {name:'name3', artist:'artist3', album:'album3', id:'3'}
+
+    this.state = {
+      searchResults: [
+        // { name: 'name1', artist: 'artist1', album: 'album1', id: '1' },
+        // { name: 'name2', artist: 'artist2', album: 'album2', id: '2' },
+        // { name: 'name3', artist: 'artist3', album: 'album3', id: '3' }
       ],
       playlistName: 'My Playlist',
       playlistTracks: [
-        {name:'playlist1', artist:'myartist1', album:'myalbum1', id:'1.1', uri: 'uri1'},
-        {name:'playlist2', artist:'myartist2', album:'myalbum2', id:'1.2', uri: 'uri2'},
-        {name:'playlist3', artist:'myartist3', album:'myalbum3', id:'1.3', uri: 'uri3'}
+        // { name: 'playlist1', artist: 'myartist1', album: 'myalbum1', id: '1.1', uri: 'uri1' },
+        // { name: 'playlist2', artist: 'myartist2', album: 'myalbum2', id: '1.2', uri: 'uri2' },
+        // { name: 'playlist3', artist: 'myartist3', album: 'myalbum3', id: '1.3', uri: 'uri3' }
       ]
     };
 
@@ -28,7 +29,7 @@ class App extends React.Component {
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
-  
+
   addTrack(track) {
     let tracks = this.state.playlistTracks;
 
@@ -36,20 +37,22 @@ class App extends React.Component {
       return;
     }
     tracks.push(track)
-    this.setState({ playlistTracks: tracks})
+    this.setState({ playlistTracks: tracks })
   }
-  
+
   removeTrack(track) {
-    this.setState({playlistTracks: this.state.people.filter(function(item) { 
-      return item !== track.id 
-  })});
+    this.setState({
+      playlistTracks: this.state.people.filter(function (item) {
+        return item !== track.id
+      })
+    });
   }
   updatePlaylistName(name) {
     this.setState({ playlistName: name })
   }
 
   savePlaylist() {
-    const trackURIs = this.state.playlistTracks.map(track => 
+    const trackURIs = this.state.playlistTracks.map(track =>
       track.uri
     );
 
@@ -57,27 +60,28 @@ class App extends React.Component {
   }
 
   search(searchTerm) {
-    console.log(searchTerm)
+    Spotify.search(searchTerm).then(searchResults => 
+      this.setState({ searchResults: searchResults }))
   }
 
   render() {
     return (
       <div>
-  <h1>Ja<span className="highlight">mmm</span>ing</h1>
-  <div className="App">
-    <SearchBar onSearch={this.search}/>
-    <div className="App-playlist">
-      <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/> 
-      <Playlist 
-        playlistName={this.state.playlistName} 
-        playlistTracks={this.state.playlistTracks} 
-        onRemove={this.removeTrack}
-        onNameChange={this.updatePlaylistName}
-        onSave={this.savePlaylist}
-      />
-    </div>
-  </div>
-</div>
+        <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <div className="App">
+          <SearchBar onSearch={this.search} />
+          <div className="App-playlist">
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
+            <Playlist
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
+              onNameChange={this.updatePlaylistName}
+              onSave={this.savePlaylist}
+            />
+          </div>
+        </div>
+      </div>
     )
   }
 }
