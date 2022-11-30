@@ -23,7 +23,7 @@ class App extends React.Component {
         // { name: 'playlist3', artist: 'myartist3', album: 'myalbum3', id: '1.3', uri: 'uri3' }
       ]
     };
-
+    this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
@@ -33,7 +33,7 @@ class App extends React.Component {
   addTrack(track) {
     let tracks = this.state.playlistTracks;
 
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     }
     tracks.push(track)
@@ -41,12 +41,11 @@ class App extends React.Component {
   }
 
   removeTrack(track) {
-    this.setState({
-      playlistTracks: this.state.people.filter(function (item) {
-        return item !== track.id
-      })
-    });
+    let tracks = this.state.playlistTracks.filter(savedTrack => savedTrack.id !== track.id);
+
+    this.setState({ playlistTracks: tracks })
   }
+
   updatePlaylistName(name) {
     this.setState({ playlistName: name })
   }
