@@ -46,26 +46,6 @@ const Spotify = {
                      uri: track.uri    
             }));
          });
-         //.then(response => {
-        //     console.log(response);
-
-        //     const jsonResult = response.json();
-        //     if(!jsonResult.tracks) {
-        //         return [];
-        //     }
-
-        //     const tracks = jsonResult.tracks.items.map(track => { 
-        //         return {
-        //             Id: track.id, 
-        //             Name: track.name, 
-        //             Artist: track.artists[0].name, 
-        //             Album: track.album.name, 
-        //             URI: track.uri    
-        //         }
-        //     });
-
-        //     return tracks;
-        // });
     },
     savePlaylist(name, trackUris) {
         if (!name || !trackUris.length) {
@@ -93,6 +73,12 @@ const Spotify = {
             })
         })
         })
+    },
+    getUserId() {
+
+    },
+    getUserPlaylists() {
+        return fetch(`https://api.spotify.com/v1/users/user_id/playlists `)
     }
 };
 
