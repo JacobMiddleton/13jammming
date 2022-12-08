@@ -76,6 +76,7 @@ const Spotify = {
         })
     },
     getUserId() {
+        const headers = { Authorization: `Bearer ${accessToken}` };
         if (userId) {
             return userId;
         }
