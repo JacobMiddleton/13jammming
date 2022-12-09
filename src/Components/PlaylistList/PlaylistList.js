@@ -7,8 +7,8 @@ export class PlaylistList extends React.Component {
     }
     render() {
         return(
-            <div className='Playlist'>
-                <h1 className="h1">Local Playlists:</h1>
+            <div className='localplaylists'>
+                <h2 className="h2">Local Playlists:</h2>
             </div>
         )
     }
