@@ -10,7 +10,9 @@ export class PlaylistList extends React.Component {
     }
     render() {
         return(
-            <div></div>
+            <div>
+                <h1 className="h1">Hello world</h1>
+            </div>
         )
     }
 }
