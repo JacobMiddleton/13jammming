@@ -1,17 +1,14 @@
 import React from "react"; 
+import './PlaylistList.css';
 
 export class PlaylistList extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-          key: []
-        }
     }
     render() {
         return(
-            <div>
-                <h1 className="h1">Hello world</h1>
+            <div className='Playlist'>
+                <h1 className="h1">Local Playlists:</h1>
             </div>
         )
     }
