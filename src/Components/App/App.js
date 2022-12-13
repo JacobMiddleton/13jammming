@@ -21,6 +21,7 @@ class App extends React.Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+    this.getUserPlaylists = this.getUserPlaylists.bind(this);
   }
 
   addTrack(track) {
@@ -60,6 +61,10 @@ class App extends React.Component {
       this.setState({ searchResults: searchResults }));
   }
 
+  getUserPlaylists() {
+    Spotify.getUserPlaylists();
+  }
+
   render() {
     return (
       <div>
@@ -76,7 +81,7 @@ class App extends React.Component {
               onSave={this.savePlaylist}
             />
           </div>
-          <PlaylistList />
+          <PlaylistList getPlaylists={this.getUserPlaylists}/>
         </div>
       </div>
     )

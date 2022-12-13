@@ -6,13 +6,18 @@ export class PlaylistList extends React.Component {
         super(props);
 
         this.state = {
-            key: []
-        }
+            playlists: []
+        };
+    }
+    componentWillMount() {
+        this.setState({
+            playlists: this.props.getPlaylists()
+        })
     }
     render() {
         return(
             <div className='localplaylists'>
-                <h2 className="h2">Local Playlists:</h2>
+                <h2 className="h2" onClick={this.props.getPlaylists}>Local Playlists:</h2>
             </div>
         )
     }
