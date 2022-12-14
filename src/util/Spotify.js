@@ -123,6 +123,8 @@ const Spotify = {
         return responseJson.id;
     },
     async getUserPlaylists() {
+        const accessToken = Spotify.getAccessToken();
+        const headers = { Authorization: `Bearer ${accessToken}` };
         let userId = await this.getUserId();
 
         const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, { headers: headers });
