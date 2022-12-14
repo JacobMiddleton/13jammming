@@ -108,27 +108,32 @@ const Spotify = {
     //     }
     //     return userId;
     // },
-    getUserPlaylists() {
+    async getUserId() {
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}` };
-        let userId; 
+        const response = await fetch('https://api.spotify.com/v1/me', { headers: headers });
+        
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);       
+        }
 
-        return fetch('https://api.spotify.com/v1/me', { headers: headers }
-        ).then(response => response.json()
-        ).then(jsonResponse => {
-            userId = jsonResponse.id;
-            return fetch(`https://api.spotify.com/v1/users/${userId}/playlists `, { headers: headers })
-            .then(
-                jsonResponse => {
-                if (!jsonResponse.items) {
-                    return [];
-                }
-                return jsonResponse.items.map(item => ({
-                    playlistId: item.id, 
-                    name: item.name
-                }));
-            });
-        })
+        const responseJson = await response.json();
+        
+        return responseJson.id;
+    },
+    async getUserPlaylists() {
+        let userId = await this.getUserId();
+
+        const response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, { headers: headers });
+        
+        if (!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);       
+        }
+
+        const responseJson = await response.json();
+        console.log(responseJson);
     }
 };
 
