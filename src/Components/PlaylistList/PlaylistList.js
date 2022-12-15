@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import './PlaylistList.css';
 
 export class PlaylistList extends React.Component {
@@ -15,10 +15,9 @@ export class PlaylistList extends React.Component {
         })
     }
     render() {
-        return(
+        return (
             <div className='localplaylists'>
                 <h2 className="h2" onClick={this.props.getPlaylists}>Local Playlists:</h2>
-                
             </div>
         )
     }
