@@ -18,6 +18,7 @@ export class PlaylistList extends React.Component {
         return(
             <div className='localplaylists'>
                 <h2 className="h2" onClick={this.props.getPlaylists}>Local Playlists:</h2>
+                
             </div>
         )
     }
