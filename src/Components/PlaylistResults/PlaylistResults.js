@@ -1,5 +1,5 @@
 import React from "react";
-import {PlaylistList} from '../PlaylistList/PlaylistList';
+import { PlaylistList } from '../PlaylistList/PlaylistList';
 
 export class PlaylistResults extends React.Component {
     constructor(props) {
@@ -16,9 +16,9 @@ export class PlaylistResults extends React.Component {
     }
     render() {
         return (
-            <div className='localplaylists'> 
+            <div className='localplaylists'>
                 <h2 className="h2">Local Playlists:</h2>
-                
+
             </div>
         )
     }
