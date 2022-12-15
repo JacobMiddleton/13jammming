@@ -3,7 +3,7 @@ import React from 'react';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { SearchResults } from '../SearchResults/SearchResults';
 import { Playlist } from '../Playlist/Playlist';
-import { PlaylistList } from '../PlaylistList/PlaylistList';
+import { PlaylistResults } from '../PlaylistResults/PlaylistResults';
 import Spotify from '../../util/Spotify'
 
 class App extends React.Component {
@@ -83,7 +83,7 @@ class App extends React.Component {
               onSave={this.savePlaylist}
             />
           </div>
-          <PlaylistList getPlaylists={this.getUserPlaylists} playlists={this.state.playlists}/>
+          <PlaylistResults getPlaylists={this.getUserPlaylists} playlists={this.state.playlists}/>
         </div>
       </div>
     )
