@@ -1,11 +1,11 @@
 import React from 'react';
-import './playlistListItem.css';
+import './PlaylistListItem.css';
 
-export class playlistListItem extends React.Component {
+export class PlaylistListItem extends React.Component {
     render() {
         return (
             <div>
-
+                <h3>{this.props.playlist.name}</h3>
             </div>
         )
     }

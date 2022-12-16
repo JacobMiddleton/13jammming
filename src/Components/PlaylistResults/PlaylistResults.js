@@ -5,20 +5,15 @@ export class PlaylistResults extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            playlists: []
-        };
     }
     componentWillMount() {
-        this.setState({
-            playlists: this.props.getPlaylists()
-        })
+        this.props.getPlaylists();
     }
     render() {
         return (
             <div className='localplaylists'>
                 <h2 className="h2">Local Playlists:</h2>
-                <PlaylistList playlists={this.state.playlists}/>
+                <PlaylistList playlists={this.props.playlists}/>
             </div>
         )
     }
