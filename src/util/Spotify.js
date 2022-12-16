@@ -70,35 +70,6 @@ const Spotify = {
             })
         })
     },
-    // getCurrentUserId() {
-
-    //     const accessToken = Spotify.getAccessToken();
-    //     const headers = { Authorization: `Bearer ${accessToken}` };
-
-    //     if (userId) {
-    //         const myExecutor = (resolve, reject) => {
-    //             if (userId) {
-    //                 resolve(userId);
-    //             } else {
-    //                 reject("something went wrong!!!");
-    //             }
-    //         };
-    //         const getUserId = () => {
-    //             const promise = new Promise(myExecutor);
-    //             return promise;
-    //         };
-    //         const userPromise = getUserId();
-    //         console.log(userPromise);
-    //     }
-    //     else {
-    //         return fetch('https://api.spotify.com/v1/me', { headers: headers }
-    //         ).then(response => response.json()
-    //         ).then(jsonResponse => {
-    //             userId = jsonResponse.id;
-    //         });
-    //     }
-    //     return userId;
-    // },
     async getUserId() {
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}` };
@@ -131,6 +102,20 @@ const Spotify = {
             playlistId: playlist.id,
             name: playlist.name
         }));
+    },
+    async getPlaylist(id) {
+        const accessToken = Spotify.getAccessToken();
+        const headers = { Authorization: `Bearer ${accessToken}` };
+
+        const response = await fetch('https://api.spotify.com/v1/playlists/playlist_id/tracks', { headers: headers });
+
+        if(!response.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+        const responseJson = await response.json();
+
+        return responseJson;
     }
 };
 
