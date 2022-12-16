@@ -11,12 +11,14 @@
     margin-top: 1rem;
     border-top: black solid 0.1rem;
     overflow-y: scroll;
+    padding: 0.88rem;
   }
 
   .h2 {
     font-size: 1.55rem;
     font-family: 'Poppins', sans-serif;
-    margin-top: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 ::-webkit-scrollbar {

@@ -1,0 +1,18 @@
+.Playlist {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(256, 256, 256, 0.8);
+    width: 100%;
+}
+
+.Playlist-information {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 72px;
+}
+
+.Playlist-information h3 {
+    margin-bottom: .22rem;
+}
