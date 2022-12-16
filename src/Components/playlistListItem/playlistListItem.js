@@ -4,7 +4,8 @@ import './PlaylistListItem.css';
 export class PlaylistListItem extends React.Component {
     render() {
         return (
-            <div className='Playlist'  onClick={ () => this.props.onSelect(this.props.playlist.playlistId) }>
+            
+            <div className='Playlist'  onClick={ () => this.props.onSelect(this.props.playlist.playlistId, this.props.playlist.name) }>
                 <div className='Playlist-information'>
                 <h3>{this.props.playlist.name}</h3>
                 </div>
