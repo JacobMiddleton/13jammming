@@ -104,18 +104,19 @@ const Spotify = {
         }));
     },
     async getPlaylist(id) {
-        const accessToken = Spotify.getAccessToken();
-        const headers = { Authorization: `Bearer ${accessToken}` };
+        // const accessToken = Spotify.getAccessToken();
+        // const headers = { Authorization: `Bearer ${accessToken}` };
 
-        const response = await fetch('https://api.spotify.com/v1/playlists/playlist_id/tracks', { headers: headers });
+        // const response = await fetch(`https://api.spotify.com/v1/playlists/1bVVzAQVkWPR02u1uaH31A/tracks`, { headers: headers });
 
-        if(!response.ok) {
-            const message = `An error has occured: ${response.status}`;
-            throw new Error(message);
-        }
-        const responseJson = await response.json();
+        // if(!response.ok) {
+        //     const message = `An error has occured: ${response.status}`;
+        //     throw new Error(message);
+        // }
+        // const responseJson = await response.json();
 
-        return responseJson;
+        // return responseJson;
+        console.log(id);
     }
 };
 

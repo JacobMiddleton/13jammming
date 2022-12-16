@@ -69,12 +69,7 @@ class App extends React.Component {
   }
 
   selectPlaylist(id) {
-    Spotify.getPlaylist(id).then(response =>
-      this.setState({
-        playlistName: response.name,
-        playlistTracks: response.items
-      })
-    ) 
+    Spotify.getPlaylist(id); 
   }
 
   render() {
