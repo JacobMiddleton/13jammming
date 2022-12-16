@@ -1,0 +1,18 @@
+.h2 {
+    font-size: 1.55rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0.8rem;
+}
+.localplaylists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    width: auto;
+    background-color: rgba(1, 12, 63, 0.7);
+    max-height: 950px;
+    min-height: 15rem;
+    box-shadow: 0 4px 2px 2px #000000;
+    margin-top: 1rem;
+    border-top: black solid 0.1rem;
+  }
