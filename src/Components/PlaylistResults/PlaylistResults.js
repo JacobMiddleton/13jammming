@@ -18,7 +18,7 @@ export class PlaylistResults extends React.Component {
         return (
             <div className='localplaylists'>
                 <h2 className="h2">Local Playlists:</h2>
-
+                <PlaylistList playlists={this.state.playlists}/>
             </div>
         )
     }
