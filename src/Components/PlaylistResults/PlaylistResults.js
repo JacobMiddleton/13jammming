@@ -14,7 +14,11 @@ export class PlaylistResults extends React.Component {
         return (
             <div className='localplaylists'>
                 <h2 className="h2">Local Playlists:</h2>
-                <PlaylistList selectPlaylist={this.props.selectPlaylist} playlists={this.props.playlists}/>
+                <PlaylistList 
+                selectPlaylist={this.props.selectPlaylist} 
+                playlists={this.props.playlists}
+                changeName={this.props.changeName}
+                />
             </div>
         )
     }

@@ -44,6 +44,7 @@ class App extends React.Component {
 
   updatePlaylistName(name) {
     this.setState({ playlistName: name });
+    console.log(`Help!!! This is the name: ${name}`);
   }
 
   savePlaylist() {
@@ -95,7 +96,9 @@ class App extends React.Component {
           <PlaylistResults 
           selectPlaylist={this.selectPlaylist} 
           getPlaylists={this.getUserPlaylists} 
-          playlists={this.state.playlists}/>
+          playlists={this.state.playlists}
+          changeName={this.updatePlaylistName}
+          />
         </div>
       </div>
     )

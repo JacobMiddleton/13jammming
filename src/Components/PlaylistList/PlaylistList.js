@@ -6,6 +6,7 @@ export class PlaylistList extends React.Component {
     constructor(props) {
         super(props);
         this.selectPlaylist = this.selectPlaylist.bind(this);
+        
     }
     selectPlaylist(id) {
         this.props.selectPlaylist(id)
@@ -21,6 +22,7 @@ export class PlaylistList extends React.Component {
                     key={playlist.playlistId} 
                     name={playlist.name}
                     onSelect={this.props.selectPlaylist}
+                    changeName={this.props.changeName}
                     />
                 })
                 }
