@@ -60,18 +60,18 @@ class App extends React.Component {
   }
 
   search(searchTerm) {
-    Spotify.search(searchTerm).then(searchResults => 
+    Spotify.search(searchTerm).then(searchResults =>
       this.setState({ searchResults: searchResults }));
   }
 
   getUserPlaylists() {
-    Spotify.getUserPlaylists().then(playlists => 
+    Spotify.getUserPlaylists().then(playlists =>
       this.setState({ playlists: playlists }));
   }
 
   selectPlaylist(id, name) {
-    Spotify.getPlaylist(id).then(playlistResults => 
-      this.setState({ 
+    Spotify.getPlaylist(id).then(playlistResults =>
+      this.setState({
         playlistTracks: playlistResults.items,
         playlistName: name
       }));
@@ -93,11 +93,11 @@ class App extends React.Component {
               onSave={this.savePlaylist}
             />
           </div>
-          <PlaylistResults 
-          selectPlaylist={this.selectPlaylist} 
-          getPlaylists={this.getUserPlaylists} 
-          playlists={this.state.playlists}
-          changeName={this.updatePlaylistName}
+          <PlaylistResults
+            selectPlaylist={this.selectPlaylist}
+            getPlaylists={this.getUserPlaylists}
+            playlists={this.state.playlists}
+            changeName={this.updatePlaylistName}
           />
         </div>
       </div>
