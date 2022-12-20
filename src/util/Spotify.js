@@ -97,7 +97,6 @@ const Spotify = {
         }
 
         const responseJson = await response.json();
-        console.log(responseJson);
         return responseJson.items.map(playlist => ({
             playlistId: playlist.id,
             name: playlist.name
@@ -106,18 +105,15 @@ const Spotify = {
     async getPlaylist(id) {
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}` };
+        let userId = await this.getUserId();
 
         const response = await fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, { headers: headers });
-
         if(!response.ok) {
             const message = `An error has occured: ${response.status}`;
             throw new Error(message);
         }
         const responseJson = await response.json();
-        
-        console.log(id);
         console.log(responseJson);
-        return responseJson;
     }
 };
 

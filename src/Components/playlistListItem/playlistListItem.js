@@ -8,7 +8,6 @@ export class PlaylistListItem extends React.Component {
     }
     onClick() {
         this.props.onSelect(this.props.playlist.playlistId, this.props.playlist.name);
-        this.props.changeName(this.props.playlist.name);
     }
     render() {
         return (
