@@ -114,6 +114,13 @@ const Spotify = {
         }
         const responseJson = await response.json();
         console.log(responseJson);
+        return responseJson.items.map(track => ({
+            name: track.track.name,
+            album: track.track.album.name,
+            artist: track.track.artists[0].name,
+            id: track.track.id,
+            uri: track.track.uri
+        }));    
     }
 };
 
